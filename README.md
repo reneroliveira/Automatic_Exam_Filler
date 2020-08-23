@@ -17,7 +17,7 @@ Link para versão executável: [script.exe](https://gvmail-my.sharepoint.com/:u:
   
   - __Gabarito:__ Alternativas que você marcou, digitadas sequencialmente da questão 1 a 5, sem espaços.
   
-  > Exemplo, suponha que você marcou nas questões 1, 2, 3, 4 e 5 as alternativas A, B, C, D, E respectivamente; Você deve digitar então "ABCDE", sem aspas, símbolos ou espaços.
+  > Exemplo, suponha que você marcou nas questões 1, 2, 3, 4 e 5 as alternativas A, B, C, D e E respectivamente; Você deve digitar então "ABCDE", sem aspas, símbolos ou espaços.
   > Não há distinção entre maiúsculas e minúsculas.
   
   - __Nome e Sobrenome:__ Para fins de identificação e geração do nome do arquivo de saída, vc deve digitar seu nome e sobrenome.
