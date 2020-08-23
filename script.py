@@ -1,6 +1,8 @@
 import io
 import os
 import pdfrw
+import time
+import glob
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm,mm
 space = 1.8*mm
@@ -13,33 +15,63 @@ start_id = (38.6*mm, max_h-125.7*mm+0.45*mm)
 start_q = (33.3*mm,max_h-192.3*mm+0.45*mm)
 error = 0.25*mm
 
+
+def split(path, page, output):
+    pdf_obj = pdfrw.PdfReader(path)
+    
+    writer = pdfrw.PdfWriter()
+    writer.addpage(pdf_obj.pages[page-1])
+    writer.write(output)
+
 def transform(id,resp,pdf_name,name):
     canvas_data = fill_ID(id)
     form = merge(canvas_data, template_path='./'+pdf_name+'.pdf')
-    save(form, filename=pdf_name+'_filled.pdf')
+    save(form, filename=pdf_name+'.pdf')
     canvas_data = fill_questions(resp.lower())
-    form = merge(canvas_data, template_path='./'+pdf_name+'_filled.pdf')
-    save(form, filename=pdf_name+'_filled.pdf')
+    form = merge(canvas_data, template_path='./'+pdf_name+'.pdf')
+    save(form, filename=pdf_name+'.pdf')
     canvas_data = fill_name(name)
-    form = merge(canvas_data, template_path='./'+pdf_name+'_filled.pdf')
-    save(form, filename=pdf_name+'_filled.pdf')
+    form = merge(canvas_data, template_path='./'+pdf_name+'.pdf')
+    save(form, filename=pdf_name+'.pdf')
 def run():
-    id = input("Matrícula: ")
-    quest = input("Gabarito: ")
     cwd = os.getcwd()
-    b = True
-    while b:
-        arq = input("Nome do pdf: ")
-        if arq[-4:] == ".pdf":
-            arq = arq[:-4]
-        if os.path.exists(arq+".pdf"):
+    print("Selecionando pdf mais recente ...")
+    time.sleep(1.5)
+    files = glob.glob(cwd+"/*.pdf")
+    files.sort(key=os.path.getmtime, reverse=True)
+    arq = files[0]
+    print(f"{arq[len(cwd):]} selecionado!")
+    time.sleep(.5)
+    b2 = True
+    while b2:
+        try:
+            page = int(input("Página do Seu Gabarito: "))
+            b2 = False
+        except:
+            print("Digite um número!!\n")
+
+    
+    while True:
+        try:
+            id = input("Matrícula: ")
+            int(id)
             break
-        
-        print(arq+".pdf não existe nesse diretório!")
-        print("Digite o nome do arquivo corretamente: ")
-            
+        except:
+            print("Digite apenas números")
+    while True:
+        quest = input("Gabarito (sem espaços):")
+        quest = quest.split()
+        if len(quest)==1:
+            quest=quest[0]
+            break
+        else:
+            print("Digite suas Respostas sem espaços!!")
+
+    
     name = input("Nome e Sobrenome: ")
-    transform(id,quest,arq,name)
+    output = "Gabarito_"+"_".join(name.split())
+    split(arq, page, output+".pdf")
+    transform(id,quest,output,name)
     
     
 def fill_ID(id_str):
