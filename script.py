@@ -42,11 +42,11 @@ def run():
     arq = files[0]
     print(f"{arq[len(cwd):]} selecionado!")
     time.sleep(.5)
-    b2 = True
-    while b2:
+    
+    while True:
         try:
             page = int(input("Página do Seu Gabarito: "))
-            b2 = False
+            break
         except:
             print("Digite um número!!\n")
 
