@@ -1,13 +1,16 @@
 # Automatic_Exam_Filler
 
-Link para versão executável: [script.exe](https://gvmail-my.sharepoint.com/:u:/g/personal/b39398_fgv_edu_br/EQqEOfolCK1Dg52dz5zEbBYBaE_OpaMAg9Hjiiju2g2lmw?e=8OLKiG)
+Preenchedor automático de Testes, desenvolvido para a disciplina de Álgebra da EMAp - FGV.
+
+[Links para versões executéveis (Windows/Linux)](https://gvmail-my.sharepoint.com/:f:/g/personal/b39398_fgv_edu_br/EoJvqAgni19GrqVXFWxrJMIB4JmN463Ywy1jpFWhLq-7mw?e=UHKXZ0)
 
 ## Instruções
 
-1. Baixe o executável e coloque o arquivo pdf com todos os testes na mesma pasta, é recomandado reservar uma pasta só pra esses arquivos.
-
+1. Baixe do link acima o executável relativo à seu sistema e coloque o arquivo pdf com todos os testes na mesma pasta, é recomendado reservar uma pasta só pra esses arquivos.
+> Para Windows baixe 'script_windows.exe'; Para Linux baixe 'script_linux'
 2. Execute o arquivo .exe aguarge a identificação do pdf. O programa irá indexar o pdf com data de modificação mais recente, então, não coloque mais nenhum pdf diferente nessa pasta após baixar o teste.
->  Se estiver no Windows, basta clicar duas vezes. No Linux, abra um terminal no diretório e execute por lá através de ./script.exe
+>  Se estiver no Windows, basta clicar duas vezes no executável. 
+No Linux, abra um terminal no diretório e execute por lá através de chmod +x script_linux e depois ./script_linux
 
 2. Após a identificação ser feita corretamente, preencha as informações:
 
