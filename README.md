@@ -4,10 +4,6 @@ Preenchedor automático de Testes, desenvolvido para a disciplina de Álgebra da
 
 [Links para versões executéveis (Windows/Linux)](https://gvmail-my.sharepoint.com/:f:/g/personal/b39398_fgv_edu_br/EoJvqAgni19GrqVXFWxrJMIB4JmN463Ywy1jpFWhLq-7mw?e=UHKXZ0)
 
-> Executáveis compilados via [pyinstaller](http://www.pyinstaller.org/).
-
-> [Referência do código](https://sigmoidal.io/pdfrw-explained/).
-
 ## Instruções
 
 1. Baixe do link acima o executável relativo à seu sistema e coloque o arquivo pdf com todos os testes na mesma pasta, é recomendado reservar uma pasta só pra esses arquivos.
@@ -37,5 +33,8 @@ No Linux, abra um terminal no diretório e execute por lá através de chmod +x 
  
  - Pelo mesmo motivo, após baixar o arquivo geral de testes na mesma pasta, não baixei mais nenhum outro pdf nessa pasta, só volte a usá-la no próximo teste.
  
- 
+### Referências
+- Executáveis compilados via [pyinstaller](http://www.pyinstaller.org/).
+
+- [Referência do código](https://sigmoidal.io/pdfrw-explained/).
  
