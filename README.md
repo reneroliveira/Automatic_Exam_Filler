@@ -4,7 +4,8 @@ Preenchedor automático de Testes, desenvolvido para a disciplina de Álgebra da
 
 [Links para versões executéveis (Windows/Linux)](https://gvmail-my.sharepoint.com/:f:/g/personal/b39398_fgv_edu_br/EoJvqAgni19GrqVXFWxrJMIB4JmN463Ywy1jpFWhLq-7mw?e=UHKXZ0)
 
-Executáveis compilados via [pyinstaller](http://www.pyinstaller.org/).
+> Executáveis compilados via [pyinstaller](http://www.pyinstaller.org/).
+  Código readaptado de [https://sigmoidal.io/pdfrw-explained/](https://sigmoidal.io/pdfrw-explained/)
 
 ## Instruções
 
