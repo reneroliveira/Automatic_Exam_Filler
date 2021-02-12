@@ -29,7 +29,7 @@ No Linux, abra um terminal no diretório e execute por lá através de chmod +x 
 
 ### Cuidados
 
- - Caso selecione de forma errada a página referente ao seu teste, você deverá repetir o procedimento informando corretamente este dado; Porém, apague o arquivo incorreto do diretório, pois o programa considera o arquivo geral como o mais recente por data de modificação, e ter uma arquivo gerado incorretamente no mesmo diretório pode causar erros inesperados.
+ - Caso selecione de forma errada a página referente ao seu teste, você deverá repetir o procedimento informando corretamente este dado; Porém, apague o arquivo incorreto do diretório, pois o programa considera o arquivo geral como o mais recente por data de modificação, e ter um arquivo gerado incorretamente no mesmo diretório pode causar erros inesperados.
  
  - Pelo mesmo motivo, após baixar o arquivo geral de testes na mesma pasta, não baixei mais nenhum outro pdf nessa pasta, só volte a usá-la no próximo teste.
  
