@@ -1,4 +1,4 @@
-# Automatic_Exam_Filler
+# Automatic_Exam_Filler (em manutenção)
 
 Preenchedor automático de Testes, desenvolvido para a disciplina de Álgebra da EMAp - FGV.
 
