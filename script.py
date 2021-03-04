@@ -5,11 +5,14 @@ import time
 import glob
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm,mm
+
 space = 2.4*mm
 space_q = (2.6*mm,4.5*mm)
 max_h = 296.93*mm
-w = -38.6*mm + 42.7*mm#-0.02*mm
-h = (125.7*mm - 121.9*mm)#+1*mm
+w = -38.6*mm + 42.7*mm#-0.02*mm --> page's width
+h = (125.7*mm - 121.9*mm)#+1*mm --> page's height
+x_name = 110 # --> x-position of name box 
+y_name = 171 # --> y-position of name box (cartesian)
 # print(h,w)
 start_id = (35.7*mm, max_h-135.3*mm+0.45*mm)
 start_q = (36.8*mm,max_h-208.3*mm+0.45*mm)
@@ -96,7 +99,7 @@ def fill_questions(q_str):
 def fill_name(name) -> io.BytesIO:
     data = io.BytesIO()
     pdf = canvas.Canvas(data)
-    pdf.drawString(x=110*mm, y=max_h-171*mm, text=name)
+    pdf.drawString(x=x_name*mm, y=max_h-y_name*mm, text=name)
     pdf.save()
     data.seek(0)
     return data
