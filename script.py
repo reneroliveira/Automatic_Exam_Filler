@@ -5,14 +5,14 @@ import time
 import glob
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm,mm
-space = 1.8*mm
-space_q = (2*mm,3.7*mm)
+space = 2.4*mm
+space_q = (2.6*mm,4.5*mm)
 max_h = 296.93*mm
 w = -38.6*mm + 42.7*mm#-0.02*mm
 h = (125.7*mm - 121.9*mm)#+1*mm
 # print(h,w)
-start_id = (38.6*mm, max_h-125.7*mm+0.45*mm)
-start_q = (33.3*mm,max_h-192.3*mm+0.45*mm)
+start_id = (35.7*mm, max_h-135.3*mm+0.45*mm)
+start_q = (36.8*mm,max_h-208.3*mm+0.45*mm)
 error = 0.25*mm
 
 
@@ -96,7 +96,7 @@ def fill_questions(q_str):
 def fill_name(name) -> io.BytesIO:
     data = io.BytesIO()
     pdf = canvas.Canvas(data)
-    pdf.drawString(x=115*mm, y=max_h-166*mm, text=name)
+    pdf.drawString(x=110*mm, y=max_h-171*mm, text=name)
     pdf.save()
     data.seek(0)
     return data
