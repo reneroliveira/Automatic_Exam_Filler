@@ -1,34 +1,261 @@
 {% extends "base.html" %}
 {% block title %}Automatic Exam Filler{% endblock %}
 {% block content %}
-<form action="#" method="POST" enctype=multipart/form-data>
-    <div class="form-group">
-      <label for="FormControlFile"></label>Arquivo Geral (Todos os Testes):</label>
-      <input type="file" class="form-control-file" name="file" accept=".pdf">
-    </div>
+<div class="bg-primary">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link h4" href="#"><center> Automatic Exam Filler</center></a>
+          </li>
+          </ul>
+      </nav>
+<div class="container-fluid p-3 sticky-top bg-primary text-white">
+<div class="row justify-content-md-center">
+<div class="col-md-10">
+    <div class="table-responsive">
 
+      <form action="#" method="POST" enctype=multipart/form-data>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupFileAddon01" >Arquivo geral (todos os testes)</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" name="file" accept=".pdf" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01" ></label>
+            </div>
+        </div>
+        
+        <!-- Antigo -->
+        <!-- <div class="form-group">
+            <label for="FormControlFile"></label>Arquivo Geral (Todos os Testes):</label>
+            <input type="file" class="form-control-file" name="file" accept=".pdf">
+        </div> -->
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Página do seu gabarito</span>
+            </div>
+            <input type="number" class="form-control" id="page" name="page" min="1" max="1000" placeholder="">
+        </div>
+        
+        <!-- <div class="form-group">
+            <label for="quantity">Página do seu gabarito</label>
+            <input type="number" id="page" name="page" min="1" max="1000"> 
+    </div> -->
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Nome e sobrenome</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Fulano da Silva" name="name" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
     
-    <div class="form-group">
-        <label for="quantity">Página do seu gabarito:</label>
-        <input type="number" id="page" name="page" min="1" max="1000"> 
-    </div>
-
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="InputName">Nome e Sobrenome:</label>
         <input type="text" class="form-control" name="name" placeholder="Nome e Sobrenome">
+    </div> -->
+    
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Matrícula</span>
+        </div>
+        <input type="text" class="form-control" name="id"  maxlength = "9" placeholder="9 dígitos da sua matrícula">
     </div>
-    <div class="form-group">
+    
+    <!-- <div class="form-group">
         <label for="InputID">Matrícula:</label>
         <input type = "text" class="form-control" name = "id" maxlength = "9" placeholder = "9 dígitos da sua matrícula"/>
+    </div> -->
+    
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Gabarito (sem espaços)</span>
+        </div>
+        <input type="text" class="form-control" name="quest"  maxlength = "6" placeholder="Ex.: abcde ou ABCDE">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="InputID">Gabarito(sem espaços)</label>
         <input type = "text" class="form-control" name = "quest" placeholder = "Ex.: abcde ou ABCDE"/>
-    </div>
-    <div class="form-group row">
+    </div> -->
+
+    <!-- Recomendo que minimize -->
+    <table class="table table-striped table-light">
+        <thead>
+          <tr>
+            <th scope="col">Questão</th>
+            <th scope="col">Alternativa</th>
+            <th scope="col">Questão</th>
+            <th scope="col">Alternativa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1A" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline1A">A</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1B" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline1B">B</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1C" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline1C">C</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1D" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline1D">D</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1E" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline1E">E</label>
+              </div>
+            </td>
+            <th scope="row">4</th>
+            <td><div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline4A" name="customRadioInline4" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline4A">A</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline4B" name="customRadioInline4" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline4B">B</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline4C" name="customRadioInline4" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline4C">C</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline4D" name="customRadioInline4" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline4D">D</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline4E" name="customRadioInline4" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline4E">E</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td><div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2A" name="customRadioInline2" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2A">A</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2B" name="customRadioInline2" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2B">B</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2C" name="customRadioInline2" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2C">C</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2D" name="customRadioInline2" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2D">D</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2E" name="customRadioInline2" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2E">E</label>
+              </div>
+            </td>
+            <th scope="row">5</th>
+            <td><div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline5A" name="customRadioInline5" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline5A">A</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline5B" name="customRadioInline5" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline5B">B</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline5C" name="customRadioInline5" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline5C">C</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline5D" name="customRadioInline5" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline5D">D</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline5E" name="customRadioInline5" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline5E">E</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td><div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline3A" name="customRadioInline3" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline3A">A</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline3B" name="customRadioInline3" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline3B">B</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline3C" name="customRadioInline3" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline3C">C</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline3D" name="customRadioInline3" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline3D">D</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline3E" name="customRadioInline3" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline3E">E</label>
+              </div>
+            </td>
+            <th scope="row">6</th>
+            <td><div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline6A" name="customRadioInline6" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline6A">A</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline6B" name="customRadioInline6" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline6B">B</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline6C" name="customRadioInline6" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline6C">C</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline6D" name="customRadioInline6" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline6D">D</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline6E" name="customRadioInline6" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline6E">E</label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table></div>
+    
+    <button type=submit value=Upload class="btn btn-secondary btn-lg btn-block">Enviar</button>
+    <!-- <div class="form-group row">
         <div class="col-sm-10">
             <input type=submit value=Upload>
+            
+        </div> -->
+        
+    </form>
+</div>
+</div>
+</div>
+<footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-dark text-center p-3">
+        © 2021 Rener 
+        <a  href="https://github.com/reneroliveira">Github</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+</div>
 
-        </div>
-  </form>
+<script type="text/javascript">
+    $('.custom-file-input').change(function (e) {
+        if (e.target.files.length) {
+            $(this).next('.custom-file-label').html(e.target.files[0].name);
+        }
+    });
+</script>
 {% endblock %}
