@@ -5,6 +5,8 @@ import time
 import glob
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm,mm
+from functions import split,transform
+
 space = 2.4*mm
 space_q = (2.6*mm,4.5*mm)
 max_h = 296.93*mm
@@ -14,25 +16,11 @@ h = (125.7*mm - 121.9*mm)#+1*mm
 start_id = (35.7*mm, max_h-135.3*mm+0.45*mm)
 start_q = (36.8*mm,max_h-208.3*mm+0.45*mm)
 error = 0.25*mm
+x_name = 110*mm
+y_name = 171*mm
 
+parameters = [space,space_q,max_h,w,h,start_id,start_q,error,x_name,y_name,y_name]
 
-def split(path, page, output):
-    pdf_obj = pdfrw.PdfReader(path)
-    
-    writer = pdfrw.PdfWriter()
-    writer.addpage(pdf_obj.pages[page-1])
-    writer.write(output)
-
-def transform(id,resp,pdf_name,name):
-    canvas_data = fill_ID(id)
-    form = merge(canvas_data, template_path='./'+pdf_name+'.pdf')
-    save(form, filename=pdf_name+'.pdf')
-    canvas_data = fill_questions(resp.lower())
-    form = merge(canvas_data, template_path='./'+pdf_name+'.pdf')
-    save(form, filename=pdf_name+'.pdf')
-    canvas_data = fill_name(name)
-    form = merge(canvas_data, template_path='./'+pdf_name+'.pdf')
-    save(form, filename=pdf_name+'.pdf')
 def run():
     cwd = os.getcwd()
     print("Selecionando pdf mais recente ...")
@@ -71,51 +59,12 @@ def run():
     name = input("Nome e Sobrenome: ")
     output = "Gabarito_"+"_".join(name.split())
     split(arq, page, output+".pdf")
-    transform(id,quest,output,name)
+    transform(id,quest,output,name,parameters)
     
     
-def fill_ID(id_str):
-    data = io.BytesIO()
-    pdf = canvas.Canvas(data)
-    for i,j in enumerate(id_str):
-        pdf.rect(start_id[0]+(w+space)*i-error, -error+start_id[1]-(space+0.4*mm+h)*int(j), w+2*error, 2*error+h, stroke=1, fill=1)
-    pdf.save()
-    data.seek(0)
-    return data
-
-def fill_questions(q_str):
-    keys = {'a':0,'b':1,'c':2,'d':3,'e':4,}
-    data = io.BytesIO()
-    pdf = canvas.Canvas(data)
-    for i,j in enumerate(q_str):
-        j = keys[j]
-        pdf.rect(start_q[0]+(w+0.3*mm+space_q[0])*j-error, -error+start_q[1]-(space_q[1]+0.4*mm+h)*i, w+2*error, 2*error+h, stroke=1, fill=1)
-    pdf.save()
-    data.seek(0)
-    return data
-def fill_name(name) -> io.BytesIO:
-    data = io.BytesIO()
-    pdf = canvas.Canvas(data)
-    pdf.drawString(x=110*mm, y=max_h-171*mm, text=name)
-    pdf.save()
-    data.seek(0)
-    return data
-
-def merge(overlay_canvas: io.BytesIO, template_path: str) -> io.BytesIO:
-    template_pdf = pdfrw.PdfReader(template_path)
-    overlay_pdf = pdfrw.PdfReader(overlay_canvas)
-    for page, data in zip(template_pdf.pages, overlay_pdf.pages):
-        overlay = pdfrw.PageMerge().add(data)[0]
-        pdfrw.PageMerge(page).add(overlay).render()
-    form = io.BytesIO()
-    pdfrw.PdfWriter().write(form, template_pdf)
-    form.seek(0)
-    return form
 
 
-def save(form: io.BytesIO, filename: str):
-    with open(filename, 'wb') as f:
-        f.write(form.read())
+
 
 # if __name__ == '__main__':
 run()
