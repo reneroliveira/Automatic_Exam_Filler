@@ -33,12 +33,15 @@ def fill_ID(id_str,start_id,space,w,h,error):
     return data
 
 def fill_questions(q_str,start_q,space_q,error,w,h):
-    keys = {'a':0,'b':1,'c':2,'d':3,'e':4,}
+    keys = {'a':0,'b':1,'c':2,'d':3,'e':4}
     data = io.BytesIO()
     pdf = canvas.Canvas(data)
     for i,j in enumerate(q_str):
-        j = keys[j]
-        pdf.rect(start_q[0]+(w+0.3*mm+space_q[0])*j-error, -error+start_q[1]-(space_q[1]+0.4*mm+h)*i, w+2*error, 2*error+h, stroke=1, fill=1)
+        try:
+            j = keys[j]
+            pdf.rect(start_q[0]+(w+0.3*mm+space_q[0])*j-error, -error+start_q[1]-(space_q[1]+0.4*mm+h)*i, w+2*error, 2*error+h, stroke=1, fill=1)
+        except KeyError:
+            continue
     pdf.save()
     data.seek(0)
     return data
