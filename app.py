@@ -39,15 +39,14 @@ def upload_page():
         name= request.form["name"]
         page = int(request.form["page"])
         id = request.form["id"]
-        quest = request.form["quest"]
-        if quest == "":
-            for i in range(1,MAX_ITENS+1):
-                key = "customRadioInline"+str(i)
-                try:
-                    quest += request.form[key]
-                except KeyError:
-                    quest += "."
-        print(quest)
+        
+        quest = ""
+        for i in range(1,MAX_ITENS+1):
+            key = "customRadioInline"+str(i)
+            try:
+                quest += request.form[key]
+            except KeyError:
+                quest += "."
         
         output = os.path.join(app.config['UPLOAD_FOLDER'],
         "Gabarito_"+"_".join(name.split()))
