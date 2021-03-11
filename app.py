@@ -53,7 +53,7 @@ def upload_page():
         "Gabarito_"+"_".join(name.split()))
         split(arq, page, output+".pdf")
         transform(id,quest,output,name,parameters)
-        return send_file(output+".pdf")#,mimetype = '.pdf')
+        return send_file(output+".pdf",as_attachment =True)#,mimetype = '.pdf')
 
     os.remove(output+".pdf")
     os.remove(arq)
