@@ -19,7 +19,7 @@ error = 0.25*mm
 x_name = 110*mm
 y_name = 175*mm
 
-MAX_ITENS = 6
+MAX_ITENS = 12
 parameters = [space,space_q,max_h,w,h,start_id,start_q,error,x_name,y_name,y_name]
 
 UPLOAD_FOLDER = 'uploads/'
