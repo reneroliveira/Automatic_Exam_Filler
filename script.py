@@ -7,17 +7,21 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm,mm
 from functions import split,transform
 
-space = 2.4*mm
-space_q = (2.6*mm,4.5*mm)
+# 12 questions adjustments
+diff = (74.7/2-9.37)*mm
+diff_name = diff -5*mm
+diff_space = -0.03*mm
+
+space = 2.4*mm + diff_space
+space_q = (2.6*mm,4.5*mm+diff_space)
 max_h = 296.93*mm
 w = -38.6*mm + 42.7*mm#-0.02*mm
 h = (125.7*mm - 121.9*mm)#+1*mm
-# print(h,w)
-start_id = (35.7*mm, max_h-135.3*mm+0.45*mm)
-start_q = (36.8*mm,max_h-208.3*mm+0.45*mm)
-error = 0.25*mm
+start_id = (35.7*mm, max_h-135.3*mm+0.45*mm+diff)
+start_q = (36.8*mm,max_h-208.3*mm+0.45*mm+diff)
+error = 0.32*mm
 x_name = 110*mm
-y_name = 171*mm
+y_name = 171*mm - diff_name
 
 parameters = [space,space_q,max_h,w,h,start_id,start_q,error,x_name,y_name,y_name]
 
@@ -57,7 +61,7 @@ def run():
 
     
     name = input("Nome e Sobrenome: ")
-    output = "Gabarito_"+"_".join(name.split())
+    
     split(arq, page, output+".pdf")
     transform(id,quest,output,name,parameters)
     

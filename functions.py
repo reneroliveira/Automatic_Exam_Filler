@@ -39,7 +39,10 @@ def fill_questions(q_str,start_q,space_q,error,w,h):
     for i,j in enumerate(q_str):
         try:
             j = keys[j]
-            pdf.rect(start_q[0]+(w+0.3*mm+space_q[0])*j-error, -error+start_q[1]-(space_q[1]+0.4*mm+h)*i, w+2*error, 2*error+h, stroke=1, fill=1)
+            if i>=9:
+                pdf.rect(start_q[0]+space_q[0]+(w+0.3*mm+space_q[0])*j-error, -error+start_q[1]-(space_q[1]+0.4*mm+h)*i, w+2*error, 2*error+h, stroke=1, fill=1)
+            else:
+                pdf.rect(start_q[0]+(w+0.3*mm+space_q[0])*j-error, -error+start_q[1]-(space_q[1]+0.4*mm+h)*i, w+2*error, 2*error+h, stroke=1, fill=1)
         except KeyError:
             continue
     pdf.save()
