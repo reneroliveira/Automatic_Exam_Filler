@@ -2,9 +2,10 @@
 
 Preenchedor automático de Testes, desenvolvido para a disciplina de Álgebra da EMAp - FGV.
 
-[Links para versões executáveis (Windows/Linux)](https://github.com/reneroliveira/Automatic_Exam_Filler/releases/tag/v2.0)
+- [Link para versão web](https://examfiller.herokuapp.com/)
+- [Links para versões executáveis (Windows/Linux)](https://github.com/reneroliveira/Automatic_Exam_Filler/releases/tag/v2.0)
 
-## Instruções
+## Instruções (versão executável)
 
 1. Baixe do link acima o executável relativo à seu sistema e coloque o arquivo pdf com todos os testes na mesma pasta, é recomendado reservar uma pasta só pra esses arquivos.
 > Para Windows baixe 'script_windows.exe'; Para Linux baixe 'script_linux'
