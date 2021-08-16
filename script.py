@@ -61,7 +61,7 @@ def run():
 
     
     name = input("Nome e Sobrenome: ")
-    
+    output = "Gabarito_"+"_".join(name.split())
     split(arq, page, output+".pdf")
     transform(id,quest,output,name,parameters)
     
