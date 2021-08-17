@@ -8,7 +8,7 @@ from reportlab.lib.units import cm,mm
 from functions import split,transform
 
 # 12 questions adjustments
-diff = 0#(74.7/2-9.37)*mm
+diff = -0.45*mm#(74.7/2-9.37)*mm
 diff_name = 0#diff -5*mm
 diff_space = 0#-0.03*mm
 
