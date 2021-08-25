@@ -9,7 +9,7 @@ from functions import split,transform
 
 # 12 questions adjustments
 diff = -0.45*mm#(74.7/2-9.37)*mm
-diff_name = 0#diff -5*mm
+diff_name = -5*mm#diff -5*mm
 diff_space = 0#-0.03*mm
 
 space = 2.4*mm + diff_space
@@ -19,7 +19,7 @@ w = -38.6*mm + 42.7*mm#-0.02*mm
 h = (125.7*mm - 121.9*mm)#+1*mm
 start_id = (35.7*mm, max_h-135.3*mm+0.45*mm+diff)
 start_q = (36.8*mm,max_h-208.3*mm+0.45*mm+diff)
-error = 0.32*mm
+error = 0.5*mm
 x_name = 110*mm
 y_name = 171*mm - diff_name
 
